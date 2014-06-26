@@ -1,0 +1,21 @@
+{% extends "templates/layout.jinja2" %}
+{% block content %}
+<title>Create Account</title>
+
+{{message}}
+
+<br>
+
+<ul>
+        <form action="{{save_url}}" method="post">
+          <label for="username">Username: </label>
+          <input name="username" type="text" />
+          <br>
+          <label for="password">Password: </label>
+          <input name="password" type="password" />
+          <label for="password_confirm">Confirm Password: </label>
+          <input name="password_confirm" type="password" />
+          <input type="submit" name="form.submitted" value="Save"/>
+        </form>
+</ul>
+{% endblock content %}

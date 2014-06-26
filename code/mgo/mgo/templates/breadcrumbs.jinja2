@@ -1,0 +1,12 @@
+<span>
+  <a href="{{request.application_url}}">Home</a>
+  <a href="{{request.route_url('create_account')}}">Create Account</a>
+  {% if logged_in %}
+  <a href="{{request.route_url('people_actions')}}">People</a>
+  <a href="{{request.route_url('file')}}">Files</a>
+  <a href="{{request.route_url('status')}}">Status</a>
+  <a href="{{request.route_url('logout')}}">Log Out</a>
+  {% else %}
+  <a href="{{request.route_url('login')}}">Log In</a>
+  {% endif %}
+</span>

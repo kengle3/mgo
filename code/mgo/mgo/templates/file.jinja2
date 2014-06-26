@@ -1,0 +1,63 @@
+{% extends "templates/layout.jinja2" %}
+{% block content %}
+
+<title>Files</title>
+
+
+{% if path != '' %}
+<a id=parent href="JavaScript:void()">Go Up One Level</a>
+{% endif %}
+
+{% if directories %}
+	<UL>
+		Directories
+		{% for directory in directories %}
+			<LI> <a id=directory href="JavaScript:void()">{{directory}}</a>
+		{% endfor %}
+	</UL>
+{% endif %}
+
+{% if files %}
+	<UL>
+		Files
+		{% for file in files %}
+			<LI> <a href={{view_url}}{% if path != '' %}{{path}}/{% endif %}{{file}}>
+					{{file}}
+				</a>
+		{% endfor %}
+	</UL>
+{% endif %}
+
+
+<ul>
+		<form id="form" action="{{save_url}}" method="post">
+			<label for="path" >
+				Directory Path: 
+			</label>
+			<input id="path" name="path" type="text" value="{{path}}"/>
+			<input type="submit" name="form.submitted" value="Go"/>
+		</form>
+</ul>
+
+<SCRIPT>
+$(document).ready(function() {
+	$("#directory").click(function(){ 
+		var directory = $(this).text();
+		var path ="{{path}}"+'/'+directory;
+		$("#path").val(path);
+		$("#form").submit();
+	}
+
+);
+});
+
+$(document).ready(function() {
+	$("#parent").click(function(){ 
+		$("#path").val("{{parent_directory_path}}");
+		$("#form").submit();
+	}
+);
+});
+</SCRIPT>
+
+{% endblock content %}

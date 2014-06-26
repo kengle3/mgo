@@ -1,0 +1,46 @@
+{% extends "templates/layout.jinja2" %}
+{% block content %}
+<title>People</title>
+
+{% if referrer != '' %}
+<a href={{referrer}}>Back</a>
+{% endif %}
+{% if message == '' %}
+
+
+<ul>
+<table border="1" id="table" class="tablesorter">
+  <thead>
+    <tr>
+      <th>Last Name</th>
+      <th>First Name</th>
+      <th>Age</th>
+      <th>Department</th>
+      <th>College</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+{% for person in people %}
+    <tr>
+      <td>{{person.last_name}}</td>
+      <td>{{person.first_name}}</td>
+      <td>{{person.age}}</td>
+      <td>{{person.department}}</td>
+      <td>{{person.college}}</td>
+      <td><a href='{{request.application_url}}/delete/{{person.id}}'>Delete</a></td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+</ul>
+
+Page {{page_number}} of {{total_pages}} {% if previous_page_url != '' %}<a href="{{previous_page_url}}">Previous</a>{% endif %} {% if next_page_url != '' %}<a href="{{next_page_url}}">Next</a>{% endif %}
+
+{% else %}
+<br>
+{{message}}
+
+{% endif %}
+
+{% endblock content %}

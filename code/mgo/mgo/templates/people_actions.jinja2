@@ -1,0 +1,15 @@
+{% extends "templates/layout.jinja2" %}
+{% block content %}
+
+<span>
+  <a href="{{request.route_url('get_page_of_people', offset=0, results_per_page=10, order_by='last_name')}}">View All People</a>
+  {% if logged_in == 'editor' %}
+  <a href="{{request.route_url('people_filters')}}">People Filters</a>
+  <a href="{{request.route_url('add_person')}}">Add Person</a>
+  <a href="{{request.route_url('add_test_people')}}">Add Test People</a>
+  <a href="{{request.route_url('delete_all_people')}}">Delete All People</a>
+  {% endif %}
+  
+</span>
+
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends "templates/layout.jinja2" %}
+{% block content %}
+<title>Add Person</title>
+<ul>
+        <form action="{{save_url}}" method="post">
+         	<label for="first_name">First Name: </label>
+         	<input name="first_name" type="text" />
+        	<label for="last_name">Last Name: </label>
+        	<input name="last_name" type="text" />
+          	<label for="age">Age: </label>
+          	<input name="age" type="number" size="6" name="age" min="1" max="130" value="21"/>
+          	<label for="department">Department: </label>
+        	<input name="department" type="text" />
+          <label for="college">College: </label>
+          <input name="college" type="text" />
+          	<input type="submit" name="form.submitted" value="Save"/>
+        </form>
+</ul>
+{% endblock content %}

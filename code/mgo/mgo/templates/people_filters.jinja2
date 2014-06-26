@@ -1,0 +1,39 @@
+{% extends "templates/layout.jinja2" %}
+{% block content %}
+<title>Filters</title>
+
+		<form id="form" action="{{save_url}}" method="post">
+			<label for="first_name" >
+				First Name: 
+			</label>
+			<input id="first_name" name="first_name" type="text"/>
+			<input type="submit" name="first_name_form.submitted" value="Go"/>
+		</form>
+		<form id="form" action="{{save_url}}" method="post">
+			<label for="last_name" >
+				Last Name: 
+			</label>
+			<input id="last_name" name="last_name" type="text"/>
+			<input type="submit" name="last_name_form.submitted" value="Go"/>
+		</form>
+		<form id="form" action="{{save_url}}" method="post">
+		    <label for="age">Age: </label>
+          	<input name="age" type="number" size="6" name="age" min="1" max="130" value="21"/>
+          	<input type="submit" name="age_form.submitted" value="Go"/>
+        </form>
+        <form id="form" action="{{save_url}}" method="post">
+			<label for="department" >
+				Department: 
+			</label>
+			<input id="department" name="department" type="text"/>
+			<input type="submit" name="department_form.submitted" value="Go"/>
+		</form>
+		<form id="form" action="{{save_url}}" method="post">
+			<label for="college" >
+				College: 
+			</label>
+			<input id="college" name="college" type="text"/>
+			<input type="submit" name="college_form.submitted" value="Go"/>
+		</form>
+
+{% endblock content %}
